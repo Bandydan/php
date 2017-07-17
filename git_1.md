@@ -63,7 +63,7 @@ zzzzssss
 ## Создание локального и удаленного репозитория 
 
 
-Вот [этот парень](https://www.google.com.ua/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=%D0%BB%D0%B8%D0%BD%D1%83%D1%81%20%D1%82%D0%BE%D1%80%D0%B2%D0%B0%D0%BB%D1%8C%D0%B4%D1%81) придумал GIT, о котором мы сегодня и поговорим.
+Вот [этот парень](https://en.wikipedia.org/wiki/Linus_Torvalds) придумал GIT, о котором мы сегодня и поговорим.
 
 Предположим, что у нас в системе стоит git. Создадим пустой репозиторий, внесем туда первые файлы и проверим, что они там лежат.
 
@@ -188,11 +188,21 @@ git branch # удаляет, создает и перечисляет ветки
 
 # 4. Полезные ссылки
 
-[Подробнее обо всех командах git](https://git-scm.com/docs)
+[Мануал по созданию rsa ключей](http://gitlab.a-level.com.ua/asmodeus/anykey_Repo/src/master/man-ssh-keygen.md)
 
-[Какие этапы проходят файлы в git](https://git-scm.com/book/ru/v1/%D0%9E%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-Git-%D0%97%D0%B0%D0%BF%D0%B8%D1%81%D1%8C-%D0%B8%D0%B7%D0%BC%D0%B5%D0%BD%D0%B5%D0%BD%D0%B8%D0%B9-%D0%B2-%D1%80%D0%B5%D0%BF%D0%BE%D0%B7%D0%B8%D1%82%D0%BE%D1%80%D0%B8%D0%B9)
+[Правила размещения проекта в A-level Gitlab](http://gitlab.a-level.com.ua/gitgod/FrontendLectures/src/master/gitConvention.md)
+
+[Книги о GIT](https://drive.google.com/drive/folders/0BzcarTnjeD1XeUptVnlDT2JibVk)
+
+[Manual](https://try.github.io/levels/1/challenges/1)
+
+[Git Branching](http://learngitbranching.js.org/)
+
+[Подробнее обо всех командах git](https://git-scm.com/docs)
 
 [Быстрый старт с GIT](http://habrahabr.ru/post/125799/)
 
 [онлайн книга про Git](https://git-scm.com/book/ru/v1)
+
+
 
