@@ -96,8 +96,7 @@ zzzzssss
 
 Вот этот парень - Линус Торвальдс. 
 
-![этот парень]
-(https://i.ytimg.com/vi/qDNVr1ucwyE/maxresdefault.jpg) 
+![](https://i.ytimg.com/vi/qDNVr1ucwyE/maxresdefault.jpg) 
 
 Он когда-то и придумал GIT, о котором мы сегодня и поговорим.
 
