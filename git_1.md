@@ -223,7 +223,7 @@ git branch # удаляет, создает и перечисляет ветки
 
 # 4. Полезные ссылки
 
-[Мануал по созданию rsa ключей](http://gitlab.a-level.com.ua/asmodeus/anykey_Repo/src/master/man-ssh-keygen.md)
+[Мануал по созданию rsa ключей](http://gitlab.a-level.com.ua/yozh/anykey_Repo/src/master/man-ssh-keygen.md)
 
 [Правила размещения проекта в A-level Gitlab](http://gitlab.a-level.com.ua/gitgod/FrontendLectures/src/master/gitConvention.md)
 
