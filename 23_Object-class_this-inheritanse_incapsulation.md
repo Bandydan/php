@@ -329,3 +329,10 @@ echo $petya->get_info();
 нужно написать
 
 `$petya->set_group("PHP123");`
+
+### Ссылки
+
+
+[Домашнее задание](23_homework.md)
+
+[24-й урок](24_Polymorphism_abstraction_SOLID_practice.md)
