@@ -17,7 +17,7 @@
 
 Современного вида HTML документ состоит из нескольких основных элементов, представленных на рисунке ниже:
 
-![HTML document structure](https://goo.gl/FKdMng)
+![HTML document structure](https://www.oreilly.com/library/view/learning-web-design/9781449337513/httpatomoreillycomsourceoreillyimages2257981.png)
 
 На представленном выше рисунке представленна стандартная и очень упрощенная структура HTML документа. По пунктам там:
 
