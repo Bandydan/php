@@ -80,7 +80,7 @@ INSERT INTO authors_books (author_id, book_id) VALUES
 ```
 
 
-![](http://stevestedman.com/wp-content/uploads/VennDiagram2.pdf)
+![](http://homes.ieu.edu.tr/culudagli/files/CE223/MySQL/mysql-jointypes-1.png)
 
 
 
