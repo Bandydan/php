@@ -234,6 +234,15 @@ composer require symfony/console@4.5
 composer update symfony/console
 ```
 
+Для обновление всех зависимостей нам нужно использовать команду без указания конкретного пакета
+
+```bash
+composer update 
+```
+
+### Практика
+
+[Simple MVC](https://github.com/pusachev/alevel_simple_mvc)
 
 ## Источники
 
