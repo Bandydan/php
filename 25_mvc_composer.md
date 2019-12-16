@@ -30,6 +30,7 @@
 ### Controller
 
 `Я человек простой. Вижу запрос и сразу его обрабатываю!`
+
 ![simple_man](images/simpleman.jpeg)
 
 
@@ -246,6 +247,39 @@ composer update
 
 [Simple MVC](https://github.com/pusachev/alevel_simple_mvc)
 
+### Home work
+
+#### Слышал MVC
+
+Пользуясь примером выше(и следуя парадигмам), создать простенький проект который при заходе еа главную страницу выводит следующую картинку
+![jeck_sparrow](images/sparrow.jpeg)
+
+И текс под ней "Все видели как я это сделал? Ибо я отказываюсь это повторять". В данном задании пользоватся composer не обязательно
+
+#### Видел MVC
+
+Пользуясь примером выше(и следуя парадигмам), создать простенький проект который при заходе еа главную страницу выводит следующую картинку
+![jeck_sparrow](images/sparrow.jpeg)
+
+И текс под ней "Все видели как я это сделал? Ибо я отказываюсь это повторять".
+При этом обязательно создаь проект используя Composer
+
+#### MVC Стиль моей жизни 
+
+Пользуясь примером выше(и следуя парадигмам), создать простенький проект который при заходе еа главную страницу выводит следующую картинку
+![jeck_sparrow](images/sparrow.jpeg)
+
+А внизу него ссылка которая ведет на отдельную страницу. 
+На отдельной странице будет текст "Все видели как я это сделал? Ибо я отказываюсь это повторять".
+При этом обязательно создать проект используя Composer. 
+Текст должен братся из базы данных.
+
+#### Псс парень, ты уже видел мой errorHandler?
+
+Сделать все из задачи [MVC Стиль моей жизни]() и добавить ксвой обработчик ошибки что бы в случае любой ошибки выводилась наша страница 502 ошибки со следующим изображение
+
+![bender](images/bender.jpg)
+
 ## Источники
 
 [Паттерны для новичков: MVC vs MVP vs MVVM](https://habr.com/ru/post/215605/)
@@ -253,3 +287,11 @@ composer update
 [Wikipedia Model-View-Controller](https://ru.wikipedia.org/wiki/Model-View-Controller)
 
 [Composer](https://getcomposer.org/doc/)
+
+[Как nginx обрабатывает запросы](http://nginx.org/ru/docs/http/request_processing.html)
+
+[mod_rewrite — просто о сложном](https://habr.com/ru/post/83597/)
+
+[The MVC Pattern and PHP, Part 1](https://www.sitepoint.com/the-mvc-pattern-and-php-1/)
+
+[The MVC Pattern and PHP, Part 2](https://www.sitepoint.com/the-mvc-pattern-and-php-2/)
