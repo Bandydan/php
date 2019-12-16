@@ -295,3 +295,8 @@ composer update
 [The MVC Pattern and PHP, Part 1](https://www.sitepoint.com/the-mvc-pattern-and-php-1/)
 
 [The MVC Pattern and PHP, Part 2](https://www.sitepoint.com/the-mvc-pattern-and-php-2/)
+
+[PSR-0: Autoloading Standard](https://www.php-fig.org/psr/psr-0/)
+
+[Автозагрузка, неймспейсы и PSR-4](https://github.com/codedokode/pasta/blob/master/php/autoload.md)
+
