@@ -354,5 +354,66 @@ $user->sessionStorage = $storage;
 
 ### Практика 
 
+[Реализация ObjectManager](https://github.com/pusachev/alevel_di_manager)
 
- 
+### Домашнее Задание
+
+Данное ДЗ подразумевает использование либо готовой [Реализации ObjectManager](https://github.com/pusachev/alevel_di_manager) либо написание своей
+
+#### Can I programming, Daddy?
+
+Написать функционал ObjectManager(OM) так что бы при создании такого объекта  
+
+```php
+class SimpleObject
+{
+    public function __construct(SimpleObject $simpleObject) {}
+}
+```
+Выдавало ошибку цыклической зависимости(бесконечная рекурсия) с указанием в каком классе и какой аргумент вызывает цыклическую зависимость
+
+#### Don't hurt me
+
+Выполнить условие задания **Can I programming, Daddy?**
+
+Перенести реализацию ObjectManager в проект MVC который вы делали ранее. 
+Имплементировать ObjectManager(OM) так что бы все объекты кроме самого ObjectManager(и его зависимостей) создавались по средствам OM
+
+#### Bring 'em on
+
+Выполнить все условия задания **Don't hurt me** и при этом сделать реализацию ObjectManager таковой что бы его модно было вызывать в люой точке проекта
+```php
+$objectManager = ObjectManager::getInstance();
+```
+
+Обратите внимание что это будет не singleton
+
+#### Do or die
+
+Выполнить все условия из задания **Bring 'em on**
+
+Написать функционал конфигурации при котором данный код
+```php
+interface SessionStorageInterface {}
+
+class SessionStorage implements SessionStorageInterface {}
+
+class SessionManager implements SessionStorageInterface
+
+class User
+{
+    public function __construct(SessionStorageInterface $sessionStorage) {}
+
+}
+```
+Создавала объект User через OM c зависимостью SessionStorage. Так же мы можем изменить конфигурацию так что бы при создании 
+объекта User ему в зависимости приходил объект SessionManager
+
+### Источники
+
+[Fabien Potencier •  Read my  Dependency Injection with PHP 5.3](Fabien_Potencier_Read_my_technical)
+[Внедрение Зависимости (Dependency Injection)](https://designpatternsphp.readthedocs.io/ru/latest/Structural/DependencyInjection/README.html)
+[Understanding Dependency Injection](http://php-di.org/doc/understanding-di.html)
+[IoC на PHP](https://habr.com/ru/post/132084/)
+
+[Traits](https://www.php.net/manual/ru/language.oop5.traits.php)
