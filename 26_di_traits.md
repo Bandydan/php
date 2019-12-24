@@ -1,14 +1,14 @@
 # Dependency Injection, Traits сказ о том как иметь зависимости и получать от этого удовольствие!
 
-`— Так это и есть твоя тайна? Твое грандиозное приключение? Ты три дня валялся на пляже и хлебал ром?
-— Добро пожаловать на Карибы, моя любовь.`
+`— Так это и есть твоя тайна? Твое грандиозное приключение? Ты три дня валялся на пляже и хлебал ром?`
+`— Добро пожаловать на Карибы, моя любовь.`
 
 ![fallout_addiction](images/fallout_dependency.jpg)
 
 ## Traits
 
-`— Пошли, посмотришь, как я жил до знакомства с тобой.
- — Ты жил до знакомства со мной?`
+`— Пошли, посмотришь, как я жил до знакомства с тобой.`
+`— Ты жил до знакомства со мной?`
 
 Трейт - это механизм обеспечения повторного использования кода в языках с поддержкой только одиночного наследования, таких как PHP. 
 Трейт предназначен для уменьшения некоторых ограничений одиночного наследования, позволяя разработчику повторно использовать наборы методов свободно, в нескольких независимых классах и реализованных с использованием разных архитектур построения классов. 
@@ -111,9 +111,9 @@ if ($rick instanceof LoggerAwareInterface)
 
 ## Dependency Injection
 
-`— Убить всех людей, я должен убить всех людей...
- — Эй!
- — О, Фрай! Мне снился чудесный сон, и ты в нем был.`
+`— Убить всех людей, я должен убить всех людей...`
+`— Эй!`
+`— О, Фрай! Мне снился чудесный сон, и ты в нем был.`
 
 ![dependency_injection](images/injection_fallout.jpg)
 
@@ -421,8 +421,11 @@ class User
 ### Источники
 
 [Fabien Potencier •  Read my  Dependency Injection with PHP 5.3](Fabien_Potencier_Read_my_technical)
+
 [Внедрение Зависимости (Dependency Injection)](https://designpatternsphp.readthedocs.io/ru/latest/Structural/DependencyInjection/README.html)
+
 [Understanding Dependency Injection](http://php-di.org/doc/understanding-di.html)
+
 [IoC на PHP](https://habr.com/ru/post/132084/)
 
 [Traits](https://www.php.net/manual/ru/language.oop5.traits.php)
