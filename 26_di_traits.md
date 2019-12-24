@@ -276,3 +276,83 @@ class User
 
 Используем Dependency Injection. 
 _Вместо того что бы создавать объект класса_ **SessionStorage** _внутри класса_ **User**, _мы внедрим уже созданный объект_ **SessionStorage** _в объект класса_ **User** _через аргумент конструктора_.
+
+```php
+class User
+{
+  function __construct($storage)
+  {
+    $this->storage = $storage;
+  }
+
+  // ...
+}
+```
+
+**Это и есть Dependency Injection. Ничего больше!** 
+Использование класса User теперь немного сложнее, так как сначала вам нужно создать объект SessionStorage:
+
+```php
+$storage = new SessionStorage('SESSION_ID');
+$user = new User($storage);
+```
+
+Теперь настройка и замена объекта SessionStorage очень проста. И все это возможно без изменения класса User.
+
+Вебсайт [Pico Container](http://picocontainer.com/injection.html) объясняет Dependency Injection вот так
+
+`«Внедрение зависимостей - это когда компонентам присваиваются зависимости через конструкторы, методы или непосредственно в поля».`
+
+### Виды DI
+
+1. Constructor DI
+
+```php
+class User
+{
+  function __construct($storage)
+  {
+    $this->storage = $storage;
+  }
+
+  // ...
+}
+```
+
+2. Setter injection
+
+```php
+class User
+{
+  function setSessionStorage($storage)
+  {
+    $this->storage = $storage;
+  }
+
+  // ...
+}
+```
+
+3. Property injection
+
+```php
+class User
+{
+  public $sessionStorage;
+}
+
+$user->sessionStorage = $storage;
+```
+
+Как правило внедрение зависимостей через конструктор подходит для обязательных зависимостей, а внедрение чере setter для опциональных.
+Внедрение зависимости через свойство практически не используется.
+
+### Важная ремарка 
+
+Поскольку понятие принцып и паттерн довольно размуты и не дают четкого определения, возникает некая путаница - DI принцып или паттерн. 
+Позиция автора данной лекции такова: DI все же больще принцып как, например, принцыпы SOLID, а вот реализация различных менеджеров объектов - паттерны использующие принцип DI
+
+### Практика 
+
+
+ 
