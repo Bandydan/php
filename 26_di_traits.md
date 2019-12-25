@@ -383,7 +383,7 @@ class SimpleObject
     public function __construct(SimpleObject $simpleObject) {}
 }
 ```
-Выдавало ошибку циклической зависимости(бесконечная рекурсия) с указанием в каком классе и какой аргумент вызывает цыклическую зависимость
+Выдавало ошибку циклической зависимости(бесконечная рекурсия) с указанием в каком классе и какой аргумент вызывает циклическую зависимость
 
 #### Don't hurt me
 
@@ -394,12 +394,12 @@ class SimpleObject
 
 #### Bring 'em on
 
-Выполнить все условия задания **Don't hurt me** и при этом сделать реализацию ObjectManager таковой что бы его модно было вызывать в люой точке проекта
+Выполнить все условия задания **Don't hurt me** и при этом сделать реализацию ObjectManager таковой что бы его можно было вызывать в любой точке проекта
 ```php
 $objectManager = ObjectManager::getInstance();
 ```
 
-Обратите внимание что это будет не singleton
+Обратите внимание что это будет **не singleton**
 
 #### Do or die
 
@@ -411,7 +411,7 @@ interface SessionStorageInterface {}
 
 class SessionStorage implements SessionStorageInterface {}
 
-class SessionManager implements SessionStorageInterface
+class SessionManager implements SessionStorageInterface {}
 
 class User
 {
@@ -424,7 +424,7 @@ class User
 
 ### Источники
 
-[Fabien Potencier •  Read my  Dependency Injection with PHP 5.3](Fabien_Potencier_Read_my_technical)
+[Fabien Potencier •  Read my  Dependency Injection with PHP 5.3](https://www.slideshare.net/fabpot/dependency-injection-with-php-53)
 
 [Внедрение Зависимости (Dependency Injection)](https://designpatternsphp.readthedocs.io/ru/latest/Structural/DependencyInjection/README.html)
 
