@@ -5,7 +5,7 @@
 Для экспериментов с данными нам понадобится таблица. К примеру, таблица слов из словаря:
 
 ```sql
-mysql> DESC word;
+mysql> DESC words;
 
 +--------+--------------+------+-----+---------+----------------+
 | Field  | Type         | Null | Key | Default | Extra          |
@@ -20,7 +20,7 @@ mysql> DESC word;
 На всякий случай приведу команду создания этой таблицы:
 
 ```sql
-CREATE TABLE `word` (
+CREATE TABLE `words` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `word` varchar(100) NOT NULL DEFAULT '',
   `voc_id` int(11) NOT NULL DEFAULT '0',
@@ -39,7 +39,7 @@ CREATE TABLE `word` (
 Простейший вариант вставки данных в таблицу выглядит следующим образом:
 
 ```sql
-INSERT INTO word SET word = "Earth", voc_id = 1;
+INSERT INTO words SET word = "Earth", voc_id = 1;
 ```
 
 В данном примере мы вставляем запись в таблицу word, указывая конкретное значение для каждого столбца в виде пары ключ-значение (key-value pair). Ключом выступает название поля, значением - собственно информация, которую мы хотим поместить в записи в это поле.
@@ -48,12 +48,12 @@ INSERT INTO word SET word = "Earth", voc_id = 1;
 ### Multiple insert
 
 ```sql
-INSERT INTO word (word, voc_id) VALUES ("cat", 2), ("dog", 2), ("donkey", 2);
+INSERT INTO words (word, voc_id) VALUES ("cat", 2), ("dog", 2), ("donkey", 2);
 ```
 Код выше вставляет данные в последующих скобках в соответствующие столбцы, указанные в первых скобках. Таким образом, вначале необходимо перечислить столбцы (поля), в которые планируется вносить данные, а затем через запятую перечислить обернутые скобочками наборы данных для этих полей. Такой запрос позволяет добавлять несколько записей разом.
 
 ```sql
-INSERT INTO word VALUES (30, "cat", 2), (31, "dog", 2), (32, "donkey", 2);
+INSERT INTO words VALUES (30, "cat", 2), (31, "dog", 2), (32, "donkey", 2);
 
 ```
 Данный вариант запроса  **`INSERT INTO`** используется, если вы планируете заполнять все столбцы, а не только выбранные.
@@ -63,7 +63,7 @@ INSERT INTO word VALUES (30, "cat", 2), (31, "dog", 2), (32, "donkey", 2);
 Возможна так же вставка данных из результата запроса:
 
 ```sql
-INSERT INTO word (word) SELECT word FROM word;
+INSERT INTO words (word) SELECT word FROM words;
 ```
 Здесь приведен довольно простой пример, но, по сути дела, если вы построите запрос данных **`SELECT`** таким образом, чтобы количество столбцов в результате соответствовало необходимому, указанному во внешнем запросе **`INSERT`**, вы можете встроить запрос довольно серьезного уровня сложности.
 
@@ -139,4 +139,298 @@ LIMIT
 5. После группировки может иметь место сортировка записей при помощи ключевых слов **`ORDER BY`**. При группировке указывается поле или перечень полей, по которому необходимо отсортировать, также можно указать направление сортировки. По умолчанию осуществляется сортировка по возрастанию. Сортировка по убыванию делается при помощи ключевого слова **`descending`** или **`desc`**.
 6. В конце запроса возможно добавление ограничений на количество записей. Слово **`LIMIT`** и цифрой после указывает, сколько записей вы хотите видет в результате. Если после слова **`LIMIT`** добавить две цифры через запятую, вы увидите второе число - количество записей после пропущенного первого числа-количества записей, т.е. **`LIMIT 20, 5`** пропустит 20 записей и покажет вам 5 следующих.
 
-## CRUD данных - Update, Delete - обновление и удаление записей. Практика.
+
+## Практика по SELECT и INSERT
+
+### DISTINCT
+
+```sql
+
+mysql> select word, voc_id from words;
+
++--------+--------+
+| word   | voc_id |
++--------+--------+
+| cat    |      2 |
+| dog    |      2 |
+| donkey |      2 |
+| cat    |      2 |
+| dog    |      2 |
+| donkey |      2 |
+| cat    |      0 |
+| dog    |      0 |
+| donkey |      0 |
+| cat    |      0 |
+| dog    |      0 |
+| donkey |      0 |
++--------+--------+
+12 rows in set (0.00 sec)
+
+
+mysql> select distinct word, voc_id from words;
+
++--------+--------+
+| word   | voc_id |
++--------+--------+
+| cat    |      2 |
+| dog    |      2 |
+| donkey |      2 |
+| cat    |      0 |
+| dog    |      0 |
+| donkey |      0 |
++--------+--------+
+6 rows in set (0.00 sec)
+
+```
+
+
+Условие **`distinct`** отбрасывает дубикаты в результате запроса, оставляя только уникальные записи.
+
+### WHERE
+
+Теперь выберем все слова и несколько раз отфильтруем их при помощи **`where`**:
+
+```sql
+
+mysql> select * from words;
+
++----+--------+--------+
+| id | word   | voc_id |
++----+--------+--------+
+|  1 | cat    |      2 |
+|  2 | dog    |      2 |
+|  3 | donkey |      2 |
+| 30 | cat    |      2 |
+| 31 | dog    |      2 |
+| 32 | donkey |      2 |
+| 33 | cat    |      0 |
+| 34 | dog    |      0 |
+| 35 | donkey |      0 |
+| 36 | cat    |      0 |
+| 37 | dog    |      0 |
+| 38 | donkey |      0 |
++----+--------+--------+
+12 rows in set (0.00 sec)
+
+
+mysql> select * from words where id > 5;
+
++----+--------+--------+
+| id | word   | voc_id |
++----+--------+--------+
+| 30 | cat    |      2 |
+| 31 | dog    |      2 |
+| 32 | donkey |      2 |
+| 33 | cat    |      0 |
+| 34 | dog    |      0 |
+| 35 | donkey |      0 |
+| 36 | cat    |      0 |
+| 37 | dog    |      0 |
+| 38 | donkey |      0 |
++----+--------+--------+
+9 rows in set (0.00 sec)
+
+mysql> select * from words where id < 5;
+
++----+--------+--------+
+| id | word   | voc_id |
++----+--------+--------+
+|  1 | cat    |      2 |
+|  2 | dog    |      2 |
+|  3 | donkey |      2 |
++----+--------+--------+
+3 rows in set (0.00 sec)
+
+```
+
+Чуть больше фильтрации и перечисление полей:
+
+```sql
+
+mysql> select * from words where id between 30 and 34;
+
++----+--------+--------+
+| id | word   | voc_id |
++----+--------+--------+
+| 30 | cat    |      2 |
+| 31 | dog    |      2 |
+| 32 | donkey |      2 |
+| 33 | cat    |      0 |
+| 34 | dog    |      0 |
++----+--------+--------+
+5 rows in set (0.01 sec)
+
+```
+
+### GROUP BY
+
+Группировать можно данные, которые повторяются в группах и не будут противоречить условиям группировки. При группировке можно и логично использовать аггрегатные функции. Аггрегатные функции - особые функции SQL, которые применяются либо ко всем записям в результате выборки, либо к группам. Count - одна из таких функций. 
+
+
+```sql
+
+mysql> select voc_id from words group by voc_id;
++--------+
+| voc_id |
++--------+
+|      2 |
+|      0 |
++--------+
+2 rows in set (0.00 sec)
+
+mysql> select voc_id, count(*) from words group by voc_id;
+
++--------+----------+
+| voc_id | count(*) |
++--------+----------+
+|      2 |        6 |
+|      0 |        6 |
++--------+----------+
+2 rows in set (0.00 sec)
+
+```
+
+### GROUP BY HAVING
+
+Ключевое слово HAVING добавляется только после GROUP BY с целью дополнительной фильтрации результатов запроса. WHERE фильтрует их до группировки, HAVING фильтрует сгруппированные.
+
+```sql
+
+insert into words set word = 'test', voc_id = 2;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select voc_id, count(*) from words group by voc_id having count(*) > 6;
++--------+----------+
+| voc_id | count(*) |
++--------+----------+
+|      2 |        7 |
++--------+----------+
+
+```
+
+Используется аггрегатная функция **`count().`**
+
+### ORDER BY
+
+```sql
+
+mysql> select word, voc_id from words order by word;
+
++--------+--------+
+| word   | voc_id |
++--------+--------+
+| cat    |      2 |
+| cat    |      2 |
+| cat    |      0 |
+| cat    |      0 |
+| dog    |      2 |
+| dog    |      2 |
+| dog    |      0 |
+| dog    |      0 |
+| donkey |      2 |
+| donkey |      2 |
+| donkey |      0 |
+| donkey |      0 |
++--------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select word, voc_id from words order by word, voc_id;
+
++--------+--------+
+| word   | voc_id |
++--------+--------+
+| cat    |      0 |
+| cat    |      0 |
+| cat    |      2 |
+| cat    |      2 |
+| dog    |      0 |
+| dog    |      0 |
+| dog    |      2 |
+| dog    |      2 |
+| donkey |      0 |
+| donkey |      0 |
+| donkey |      2 |
+| donkey |      2 |
++--------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select word, voc_id from words order by word, voc_id desc;
+
++--------+--------+
+| word   | voc_id |
++--------+--------+
+| cat    |      2 |
+| cat    |      2 |
+| cat    |      0 |
+| cat    |      0 |
+| dog    |      2 |
+| dog    |      2 |
+| dog    |      0 |
+| dog    |      0 |
+| donkey |      2 |
+| donkey |      2 |
+| donkey |      0 |
+| donkey |      0 |
++--------+--------+
+12 rows in set (0.00 sec)
+
+mysql> select word, voc_id from words order by 1, 2 desc;
+
++--------+--------+
+| word   | voc_id |
++--------+--------+
+| cat    |      2 |
+| cat    |      2 |
+| cat    |      0 |
+| cat    |      0 |
+| dog    |      2 |
+| dog    |      2 |
+| dog    |      0 |
+| dog    |      0 |
+| donkey |      2 |
+| donkey |      2 |
+| donkey |      0 |
+| donkey |      0 |
++--------+--------+
+12 rows in set (0.00 sec)
+
+```
+
+### LIMIT и OFFSET
+
+```sql
+
+mysql> select word, voc_id from words order by 1, 2 desc limit 5;
+
++------+--------+
+| word | voc_id |
++------+--------+
+| cat  |      2 |
+| cat  |      2 |
+| cat  |      0 |
+| cat  |      0 |
+| dog  |      2 |
++------+--------+
+5 rows in set (0.00 sec)
+
+mysql> select word, voc_id from words order by 1, 2 desc limit 5, 2;
+
++------+--------+
+| word | voc_id |
++------+--------+
+| dog  |      2 |
+| dog  |      0 |
++------+--------+
+2 rows in set (0.00 sec)
+
+```
+## Полезные ссылки
+
+
+[Типы данных](https://metanit.com/sql/mysql/2.3.php)
+
+[Аггрегатные функции](https://metanit.com/sql/mysql/4.5.php)
+
+[Домашка](hw13.md)
+
+[Следующий урок](lesson14.md)
