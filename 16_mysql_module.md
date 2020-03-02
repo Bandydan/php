@@ -44,25 +44,102 @@
 
 ### 4. Создать и заполнить структуру данных для хранения словарей и слов из них:
 
-```mysql
-create table dicts( id int not null auto_increment primary key, title varchar(255) not null default "", updated timestamp default current_timestamp on update current_timestamp);
+```sql
+CREATE TABLE dicts(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	title VARCHAR(255) NOT NULL DEFAULT "",
+	updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
-create table words( id int not null auto_increment primary key, word varchar(255) not null default "", type varchar(100) not null default 'w', dict_id int not null default 1, updated timestamp default current_timestamp on update current_timestamp);
+CREATE TABLE words(
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	word VARCHAR(255) NOT NULL DEFAULT "",
+	type VARCHAR(100) NOT NULL DEFAULT 'w',
+	dict_id INT NOT NULL DEFAULT 1,
+	updated TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
 ```
 
-```
-insert into dicts (title) values('animals'), ('school'), ('nature'), ('human'), ('SF');
+```sql
+INSERT INTO dicts
+	(title)
+VALUES
+	('animals'),
+	('school'),
+	('nature'),
+	('human'),
+	('SF');
 
-insert into words (word, dict_id) values ('turtle', 1), ('pig', 1), ('dog', 1), ('cat', 1), ('lizard', 1), ('cow', 1), ('rabbit', 1), ('frog', 1), ('headgehog', 1), ('goat', 1);
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('turtle', 1),
+	('pig', 1),
+	('dog', 1),
+	('cat', 1),
+	('lizard', 1),
+	('cow', 1),
+	('rabbit', 1),
+	('frog', 1),
+	('headgehog', 1),
+	('goat', 1);
 
-insert into words (word, dict_id) values ('desk', 2), ('book', 2), ('chalk', 2), ('pen', 2), ('pencil', 2), ('copybook', 2), ('lesson', 2), ('teacher', 2), ('pupils', 2), ('school', 2);
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('desk', 2),
+	('book', 2),
+	('chalk', 2),
+	('pen', 2),
+	('pencil', 2),
+	('copybook', 2),
+	('lesson', 2),
+	('teacher', 2),
+	('pupils', 2),
+	('school', 2);
 
-insert into words (word, dict_id) values ('ray', 3), ('thunder', 3), ('sun', 3), ('field', 3), ('hill', 3), ('mountain', 3), ('river', 3), ('forest', 3), ('grass', 3), ('rain', 3);
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('ray', 3),
+	('thunder', 3),
+	('sun', 3),
+	('field', 3),
+	('hill', 3),
+	('mountain', 3),
+	('river', 3),
+	('forest', 3),
+	('grass', 3),
+	('rain', 3);
 
-insert into words (word, dict_id) values ('hair', 4), ('nail', 4), ('finger', 4), ('eye', 4), ('tooth', 4), ('knee', 4), ('elbow', 4), ('leg', 4), ('arm', 4), ('head', 4);
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('hair', 4),
+	('nail', 4),
+	('finger', 4),
+	('eye', 4),
+	('tooth', 4),
+	('knee', 4),
+	('elbow', 4),
+	('leg', 4),
+	('arm', 4),
+	('head', 4);
 
-insert into words (word, dict_id) values ('engine', 5), ('steel', 5), ('power', 5), ('nuclear', 5), ('shotgun', 5), ('laser', 5), ('flight', 5), ('energy', 5), ('Moon', 5), ('splace', 5);
+INSERT INTO words
+	(word, dict_id)
+VALUES
+	('engine', 5),
+	('steel', 5),
+	('power', 5),
+	('nuclear', 5),
+	('shotgun', 5),
+	('laser', 5),
+	('flight', 5),
+	('energy', 5),
+	('Moon', 5),
+	('splace', 5);
 
 ```
 
