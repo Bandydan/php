@@ -227,7 +227,7 @@ __root__ это кроме как корень еще и пользовател�
 
 #### Полезные сслыки
 
-[Командная строка](https://www.ibm.com/developerworks/ru/library/l-lpic1-v3-103-1/index.html)
+[Командная строка](http://web-old.archive.org/web/20161202141902/http://www.ibm.com/developerworks/ru/library/l-lpic1-v3-103-1/index.html)
 
 [Необычные решения сложных задач одной строкой](http://www.bashoneliners.com/oneliners/popular/)
 
